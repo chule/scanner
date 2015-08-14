@@ -66,7 +66,7 @@ var app = {
             d3.csv("data/bars.csv", function(data) {
                 data.forEach(function (d) {
                     if (d.bar_code === result.text) {
-                        alert("Result: " + result.text);
+                        alert("Result: " + result.text + " " + d.cijena);
                     }
                 })
             });
