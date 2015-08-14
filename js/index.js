@@ -58,13 +58,21 @@ var app = {
 
         scanner.scan( function (result) { 
 
-            alert("We got a barcode\n" + 
-            "Result: " + result.text + "\n" + 
-            "Format: " + result.format + "\n" + 
-            "Cancelled: " + result.cancelled); 
+            // alert("We got a barcode\n" + 
+            // "Result: " + result.text + "\n" + 
+            // "Format: " + result.format + "\n" + 
+            // "Cancelled: " + result.cancelled); 
+
+            d3.csv("data/bars.csv", function(data) {
+                data.forEach(function (d) {
+                    if (d.bar_code === result.text) {
+                        alert("Result: " + result.text);
+                    }
+                })
+            });
 
 
-             
+
 
            // console.log("Scanner result: \n" +
            //      "text: " + result.text + "\n" +
