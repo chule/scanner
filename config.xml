@@ -15,7 +15,7 @@
     
     <gap:platform name="android" />
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-    <gap:plugin name="org.apache.cordova.file.FileUtils"/>
+    <gap:plugin name="org.apache.cordova.file" version="1.3.1" />
 
 
 
