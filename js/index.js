@@ -109,7 +109,7 @@ var app = {
 
     encode: function() {
 
-        alert("Root sustave je" + cordova.file.dataDirectory); //
+        alert("Root sustave je"); //
 
         // var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
