@@ -53,7 +53,9 @@ var app = {
                     if (d.bar_code === result.text) {
                         alert("Result: " + d.bar_code + "\n" + d.cijena.split("=")[0]);
                     } else if (i + 1 === data.length) {
-                        alert("Barkod " + result.text + " nije pronađen");
+                        //alert("Barkod " + result.text + " nije pronađen");
+                        alert("cordova.file.dataDirectory");
+                        
                     }
 
                 })
@@ -100,10 +102,13 @@ var app = {
 
 function onInitFs(fs) {
 
-    var fileURL = "cdvfile://localhost/persistent/file.png";
+    //var fileURL = "cdvfile://localhost/persistent/file.png";
+    var fileURL = "file://localhost/persistent/file.png";
+                    //file://localhost/persistent/DCIM/Camera/1395167011485.jpg
 
     var fileTransfer = new FileTransfer();
-    var uri = encodeURI("http://upload.wikimedia.org/wikipedia/commons/6/64/Gnu_meditate_levitate.png");
+    var uri = encodeURI("http://upload.wikimedia.org/wikipedia/commons/6/64/Gnu_meditate_levitate.png
+        ");
 
     fileTransfer.download(
             uri,
