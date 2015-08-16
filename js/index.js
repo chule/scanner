@@ -10,7 +10,7 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
-        document.getElementById('alert').addEventListener('click', this.alert, false);
+        //document.getElementById('alert').addEventListener('click', this.alert, false);
         document.getElementById('encode').addEventListener('click', this.encode, false);
     },
 
@@ -38,9 +38,9 @@ var app = {
         console.log('Received Event: ' + id);
     },
 
-    alert: function () {
-        alert("Root sustave je" + cordova.file.dataDirectory); //
-    },
+    // alert: function () {
+    //     alert("Root sustave je" + cordova.file.dataDirectory); //
+    // },
 
     scan: function() {
         
