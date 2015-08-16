@@ -18,9 +18,7 @@ var app = {
     // The scope of `this` is the event. In order to call the `receivedEvent`
     // function, we must explicity call `app.receivedEvent(...);`
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-        window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onInitFs, errorHandler);        
+        app.receivedEvent('deviceready');     
     },
 
     // Update DOM on a Received Event
@@ -31,6 +29,10 @@ var app = {
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
+
+
+        window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onInitFs, errorHandler);   
 
         console.log('Received Event: ' + id);
     },
