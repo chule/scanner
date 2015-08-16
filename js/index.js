@@ -10,8 +10,8 @@ var app = {
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
         document.getElementById('scan').addEventListener('click', this.scan, false);
-        document.getElementById('alert').addEventListener('click', this.alert, false);
-        // document.getElementById('encode').addEventListener('click', this.encode, false);
+        //document.getElementById('alert').addEventListener('click', this.alert, false);
+        document.getElementById('encode').addEventListener('click', this.encode, false);
     },
 
     // deviceready Event Handler
@@ -92,14 +92,17 @@ var app = {
     },
 
     encode: function() {
-        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
-        scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
-            alert("encode success: " + success);
-          }, function(fail) {
-            alert("encoding failed: " + fail);
-          }
-        );
+        alert("Root sustave je");
+        
+        // var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+
+        // scanner.encode(scanner.Encode.TEXT_TYPE, "http://www.nhl.com", function(success) {
+        //     alert("encode success: " + success);
+        //   }, function(fail) {
+        //     alert("encoding failed: " + fail);
+        //   }
+        // );
 
     }
 
