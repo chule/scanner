@@ -40,7 +40,7 @@ var app = {
 
     alert: function () {
         alert("Root sustave je"); //+ cordova.file.dataDirectory
-    }
+    },
 
     scan: function() {
         
