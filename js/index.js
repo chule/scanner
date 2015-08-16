@@ -110,6 +110,7 @@ var app = {
     encode: function() {
 
         alert("Root sustave je"); //
+        onDeviceReady();
 
         // var scanner = cordova.require("cordova/plugin/BarcodeScanner");
 
@@ -126,35 +127,40 @@ var app = {
 
 
 
-// function onInitFs(fs) {
+function onDeviceReady() {
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+}
 
-//     //var fileURL = "cdvfile://localhost/persistent/file.png";
-//     var fileURL = "file://localhost/persistent/file.png";
-//                     //file://localhost/persistent/DCIM/Camera/1395167011485.jpg
+function gotFS(fileSystem) {
+    fileSystem.root.getFile("readme.txt", {create: true, exclusive: false}, gotFileEntry, fail);
+}
 
-//     var fileTransfer = new FileTransfer();
-//     var uri = encodeURI("http://upload.wikimedia.org/wikipedia/commons/6/64/Gnu_meditate_levitate.png
-//         ");
+function gotFileEntry(fileEntry) {
+    fileEntry.createWriter(gotFileWriter, fail);
+}
 
-//     fileTransfer.download(
-//             uri,
-//             fileURL,
-//             function(entry) {
-//                 console.log("download complete: " + entry.fullPath);
-//             },
-//             function(error) {
-//                 console.log("download error source " + error.source);
-//                 console.log("download error target " + error.target);
-//                 console.log("upload error code" + error.code);
-//             },
-//             false,
-//             {
-//                 headers: {
-//                     "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-//                 }
-//             }
-//     );
-// }
+function gotFileWriter(writer) {
+    writer.onwriteend = function(evt) {
+        console.log("contents of file now 'some sample text'");
+        writer.truncate(11);
+        writer.onwriteend = function(evt) {
+            console.log("contents of file now 'some sample'");
+            writer.seek(4);
+            writer.write(" different text");
+            writer.onwriteend = function(evt){
+                console.log("contents of file now 'some different text'");
+            }
+        };
+    };
+    writer.write("some sample text");
+}
+
+function fail(error) {
+    console.log(error.code);
+}
+
+
+
 
 
 /*
