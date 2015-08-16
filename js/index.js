@@ -31,8 +31,8 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
 
-        window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onInitFs, errorHandler);   
+        // window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;
+        // window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onInitFs, errorHandler);   
 
         console.log('Received Event: ' + id);
     },
@@ -55,8 +55,8 @@ var app = {
                     if (d.bar_code === result.text) {
                         alert("Result: " + d.bar_code + "\n" + d.cijena.split("=")[0]);
                     } else if (i + 1 === data.length) {
-                        //alert("Barkod " + result.text + " nije pronađen");
-                        alert("cordova.file.dataDirectory");
+                        alert("Barkod " + result.text + " nije pronađen");
+                        // alert("cordova.file.dataDirectory");
                         
                     }
 
@@ -102,35 +102,35 @@ var app = {
 
 
 
-function onInitFs(fs) {
+// function onInitFs(fs) {
 
-    //var fileURL = "cdvfile://localhost/persistent/file.png";
-    var fileURL = "file://localhost/persistent/file.png";
-                    //file://localhost/persistent/DCIM/Camera/1395167011485.jpg
+//     //var fileURL = "cdvfile://localhost/persistent/file.png";
+//     var fileURL = "file://localhost/persistent/file.png";
+//                     //file://localhost/persistent/DCIM/Camera/1395167011485.jpg
 
-    var fileTransfer = new FileTransfer();
-    var uri = encodeURI("http://upload.wikimedia.org/wikipedia/commons/6/64/Gnu_meditate_levitate.png
-        ");
+//     var fileTransfer = new FileTransfer();
+//     var uri = encodeURI("http://upload.wikimedia.org/wikipedia/commons/6/64/Gnu_meditate_levitate.png
+//         ");
 
-    fileTransfer.download(
-            uri,
-            fileURL,
-            function(entry) {
-                console.log("download complete: " + entry.fullPath);
-            },
-            function(error) {
-                console.log("download error source " + error.source);
-                console.log("download error target " + error.target);
-                console.log("upload error code" + error.code);
-            },
-            false,
-            {
-                headers: {
-                    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
-                }
-            }
-    );
-}
+//     fileTransfer.download(
+//             uri,
+//             fileURL,
+//             function(entry) {
+//                 console.log("download complete: " + entry.fullPath);
+//             },
+//             function(error) {
+//                 console.log("download error source " + error.source);
+//                 console.log("download error target " + error.target);
+//                 console.log("upload error code" + error.code);
+//             },
+//             false,
+//             {
+//                 headers: {
+//                     "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+//                 }
+//             }
+//     );
+// }
 
 
 /*
