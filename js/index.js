@@ -96,6 +96,36 @@ var app = {
 
 };
 
+
+
+function onInitFs(fs) {
+
+    var fileURL = "cdvfile://localhost/persistent/file.png";
+
+    var fileTransfer = new FileTransfer();
+    var uri = encodeURI("http://upload.wikimedia.org/wikipedia/commons/6/64/Gnu_meditate_levitate.png");
+
+    fileTransfer.download(
+            uri,
+            fileURL,
+            function(entry) {
+                console.log("download complete: " + entry.fullPath);
+            },
+            function(error) {
+                console.log("download error source " + error.source);
+                console.log("download error target " + error.target);
+                console.log("upload error code" + error.code);
+            },
+            false,
+            {
+                headers: {
+                    "Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+                }
+            }
+    );
+}
+
+
 /*
 TO DO:
 * load externally "bars.csv"
