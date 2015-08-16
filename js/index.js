@@ -39,7 +39,7 @@ var app = {
     },
 
     alert: function () {
-        alert("Root sustave je\n " + cordova.file.dataDirectory);
+        alert("Root sustave je"); //+ cordova.file.dataDirectory
     }
 
     scan: function() {
