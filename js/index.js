@@ -56,7 +56,7 @@ var app = {
                         alert("Result: " + d.bar_code + "\n" + d.cijena.split("=")[0]);
                     } else if (i + 1 === data.length) {
                         //alert("Barkod " + result.text + " nije pronađen");
-                        alert(cordova.file.dataDirectory);
+                        alert("Root sustave je\n " + cordova.file.dataDirectory);
                         
                     }
 
